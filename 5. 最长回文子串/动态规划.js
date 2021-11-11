@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function (s) {
+const longestPalindrome = function (s) {
     let n = s.length;
     let res = '';
     let dp = Array.from(new Array(n), () => new Array(n).fill(false));

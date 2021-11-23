@@ -31,7 +31,7 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function (s) {
+const lengthOfLongestSubstring = function (s) {
     if (s.length <= 1)
         return s.length
     let maxLen = 0
@@ -47,8 +47,8 @@ var lengthOfLongestSubstring = function (s) {
     return maxLen
 }
 
-// console.log(lengthOfLongestSubstring(''))
-// console.log(lengthOfLongestSubstring('abcabcbb'))
-// console.log(lengthOfLongestSubstring('bbbbbbb'))
-// console.log(lengthOfLongestSubstring('pwwkew'))
+console.log(lengthOfLongestSubstring(''))
+console.log(lengthOfLongestSubstring('abcabcbb'))
+console.log(lengthOfLongestSubstring('bbbbbbb'))
+console.log(lengthOfLongestSubstring('pwwkew'))
 console.log(lengthOfLongestSubstring('abba'))

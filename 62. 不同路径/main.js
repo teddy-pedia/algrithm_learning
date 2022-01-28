@@ -22,4 +22,4 @@ var uniquePaths = function (m, n) {
     return dp[m - 1][n - 1]
 }
 
-uniquePaths(3, 7) // 28
+uniquePaths(51, 9) // 28

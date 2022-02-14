@@ -17,6 +17,7 @@
 var buildTree = function (preorder, inorder) {
     const map = {}
     // 将中序遍历的节点按照 ’节点 - 索引‘保存到map中
+    console.log(inorder)
     inorder.forEach((num, index) => (map[num] = index))
 
     /**
@@ -26,20 +27,18 @@ var buildTree = function (preorder, inorder) {
      * @param {number} right 中序遍历右边界
      * @returns {TreeNode} root
      */
-    function buildTree(root_index, left, right) {
-        // 左边界大于右边界时，说明已经越过了叶子节点，返回null
-        // 当left === right时，表示为叶子节点
+    const recur = (root_index, left, right) => {
         if (left > right) return null
         // 获取根节点
         let root = new TreeNode(preorder[root_index])
         // 根节点在中序遍历中的索引
         let index = map[preorder[root_index]]
-        root.left = buildTree(root_index + 1, left, index - 1)
+        root.left = recur(root_index + 1, left, index - 1)
         // 左子树区间长度为index - 1 - left + 1 = index - left
         // 所以root_index + 1 + index - left表示右子树的根节点的索引
-        root.right = buildTree(root_index + 1 + index - left, index + 1, right)
+        root.right = recur(root_index + 1 + index - left, index + 1, right)
         return root
     }
 
-    return buildTree(0, 0, inorder.length - 1)
+    return recur(0, 0, inorder.length - 1)
 }

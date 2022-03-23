@@ -17,16 +17,15 @@ function quickSort(nums, left, right) {
 }
 
 function partition(nums, start, end) {
-    let pivot = nums[start],
+    let pivot = nums[end],
         mark = start
-    for (let i = start + 1; i <= end; i++) {
+    for (let i = start; i <= end - 1; i++) {
         if (nums[i] < pivot) {
-            mark++ // 小于的区域增加1
             ;[nums[i], nums[mark]] = [nums[mark], nums[i]]
+            mark++ // 小于的区域增加1
         }
     }
-    nums[start] = nums[mark]
-    nums[mark] = pivot
+    ;[nums[mark], nums[end]] = [nums[end], nums[mark]]
     return mark
 }
 
